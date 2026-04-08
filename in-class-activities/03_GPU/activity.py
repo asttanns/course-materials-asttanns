@@ -12,8 +12,9 @@ steps = cp.random.normal(loc=0, scale=1, size=(N, 100), dtype=cp.float32)
 steps[:, 0] = 0
 r_walks = 100 + cp.cumsum(steps, axis=1)
 
-average_finish = cp.mean(r_walks[:, -1])
-std_finish = .std(r_walks[:, -1])
+average_finish = cp.mean(r_walks[:, -1]).item()
+std_finish = cp.std(r_walks[:, -1]).item()
 print(f'Average Finish: {average_finish}, Standard Deviation: {std_finish}')
 t1 = time.time()
 print(f'Time (s): {t1-t0}')
+
