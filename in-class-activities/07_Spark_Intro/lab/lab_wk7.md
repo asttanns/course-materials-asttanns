@@ -2,16 +2,11 @@
 
 ### 1. Launch an EMR Cluster
 ```bash
-aws emr create-cluster \
-    --name "Spark Cluster" \
-    --release-label "emr-6.2.0" \
-    --applications Name=Hadoop Name=Hive Name=JupyterEnterpriseGateway Name=JupyterHub Name=Livy Name=Pig Name=Spark Name=Tez \
-    --instance-type m5.xlarge \
-    --instance-count 3 \
-    --use-default-roles \
-    --region us-east-1 \
-    --ec2-attributes '{"KeyName": "vockey"}' \
-    --configurations '[{"Classification": "jupyter-s3-conf", "Properties": {"s3.persistence.enabled": "true", "s3.persistence.bucket": "<YOUR_BUCKET_NAME>"}}]'
+python launch_spark_cluster.py \
+    --s3_bucket "$S3_BUCKET" \
+    --primary_count 1 \
+    --core_count 2 \
+    --instance_type "m5.xlarge"
 ```
 
 - While waiting for the EMR Cluster to launch, please complete the exercises below, save as python files, run them on Midway 3.
