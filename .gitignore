@@ -172,3 +172,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+in-class-activities/02_Midway_CPU/MPI/r_walk_nprocs4_nruns10000.png
